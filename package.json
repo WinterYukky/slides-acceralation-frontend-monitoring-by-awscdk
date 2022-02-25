@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.28.6",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*"
+  },
+  "name": "acceralation-frontend-monitoring-by-awscdk",
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.1.0"
+  }
+}
