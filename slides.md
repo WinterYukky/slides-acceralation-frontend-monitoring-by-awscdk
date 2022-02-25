@@ -489,7 +489,7 @@ clicks: 1
   <div 
   class="text-12xl text-black py-8 refutation"
   >
-    <div class="flex justify-around">論破<img src="profile.png" class="h-60" /></div>
+    <div class="flex justify-around">論破<img src="/profile.png" class="h-60" /></div>
   </div>
 </div>
 
