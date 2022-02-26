@@ -724,10 +724,39 @@ console.log(bucket.bucketWebsiteDomainName)
 </div>
 
 ---
+
+# トークン値をデプロイするには
+
+<div class="grid grid-cols-5 gap-7 items-center h-4/5">
+  <div class="col-span-3">
+    <div class="opacity-50 text-sm">トークンを出力する例</div>
+
+```yaml
+scripts:
+  - yarn cdk deploy --require-approval never -O output.json RumStack
+  - jq -r .RumStack.CodeSnippet output.json > rum.js
+  - yarn cdk deploy --require-approval never WebSiteStack
+```
+
+  </div>
+  <div class="col-span-2">
+    <ol class="flex flex-col justify-center opacity-90">
+      <li class="my-2">スタックを分離</li>
+      <li class="my-2">デプロイタイミングを分離</li>
+      <li class="my-2">jq等でjson値を取得</li>
+      <li class="my-2">後続スタックをデプロイ</li>
+    </ol>
+    <div v-click class="mt-4 text-2xl">
+      <mdi-arrow-right/>パイプラインの複雑化
+    </div>
+  </div>
+</div>
+
+---
 layout: center
 ---
 
-# それを解決するのが最近リリースされた機能
+# 最近のリリースで事情が変化
 
 ---
 
