@@ -602,9 +602,9 @@ const codeSnippet = appMonitor.generateCodeSnippet('CodeSnippetId', {
 
   </div>
   <ul class="flex flex-col justify-center col-span-2">
-    <li class="my-2 opacity-90">コードスニペット生成機能</li>
     <li class="my-2 opacity-90">Cognito Idpの自動生成</li>
     <li class="my-2 opacity-90">必要なポリシーの割り当て</li>
+    <li class="my-2 opacity-90">コードスニペット生成機能</li>
   </ul>
 </div>
 
