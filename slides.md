@@ -161,7 +161,7 @@ class: text-center
     <div class="opacity-50 text-sm">S3へファイルをデプロイする例</div>
 
 ```ts {all|1|2|3-6|all}
-const bucket = s3.Bucket(this, 'Bucket')
+const bucket = new s3.Bucket(this, 'Bucket')
 const asset = s3deploy.Source.asset('./asset/path')
 new s3deploy.BucketDeployment(this, 'BucketDeployment', {
   sources: [asset],
@@ -187,7 +187,7 @@ layout: center
     <div class="opacity-50 text-sm mt-3">静的サイトをビルドする例</div>
 
 ```ts {all|1-4|5-18|9-15|19-22|all}
-const staticSiteBucket = s3.Bucket(this, 'Bucket', {
+const staticSiteBucket = new s3.Bucket(this, 'Bucket', {
   publicReadAccess: true,
   websiteIndexDocument: 'index.html'
 })
@@ -711,7 +711,7 @@ layout: center
     <div class="opacity-50 text-sm">トークンを出力する例</div>
 
 ```ts {all|1-4|6-7|all}
-const bucket = s3.Bucket(this, 'Bucket', {
+const bucket = new s3.Bucket(this, 'Bucket', {
   publicReadAccess: true,,
   websiteIndexDocument: 'index.html'
 })
