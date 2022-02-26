@@ -533,15 +533,15 @@ layout: center
 
 <div class="grid grid-cols-2 items-center h-4/5">
   <ul class="flex flex-col justify-center">
-    <li class="my-2 opacity-90">CloudFormationの機能</li>
-    <li class="my-2 opacity-90">Lambdaで任意の仕組みを作れる</li>
+    <li class="my-2 opacity-90">CloudFormationに備わっている機能</li>
+    <li class="my-2 opacity-90">Lambdaで任意のリソースを作れる</li>
     <li class="my-2 opacity-90">出力はそのまま値として利用可能</li>
     <li class="my-2 opacity-90">AWS CDKだと簡単に使える</li>
   </ul>
   <div>
     <div class="opacity-50 text-sm">CustomResourceの使用例</div>
 
-```ts {all|3-5|6-9|2,12|all}
+```ts {all|3-5|6-9|2,12-13|all}
 // JSONオブジェクトをレスポンスするLamnda
 // 例: { Status: "SUCCESS", Data: { MyValue: "WinterYukky" } }
 const myFunction = new lambda.NodejsFunction(this, 'MyFunc', {
@@ -553,7 +553,8 @@ const customResource = new CustomResource(this, 'Custom', {
 });
 
 // レスポンスのDataからのパスでアクセス
-customResource.getAttString('MyValue'); // WinterYukky
+// WinterYukkyが取得できる
+const myValue = customResource.getAttString('MyValue');
 ```
 
   <div class="opacity-20 text-xs">※実際にはいくつかの必須項目もレスポンスする必要あり</div>
@@ -712,7 +713,7 @@ layout: center
 
 ```ts {all|1-4|6-7|all}
 const bucket = new s3.Bucket(this, 'Bucket', {
-  publicReadAccess: true,,
+  publicReadAccess: true,
   websiteIndexDocument: 'index.html'
 })
 
@@ -731,7 +732,7 @@ console.log(bucket.bucketWebsiteDomainName)
   <div class="col-span-3">
     <div class="opacity-50 text-sm">トークンを出力する例</div>
 
-```yaml
+```yaml {2|3|4|all}}
 scripts:
   - yarn cdk deploy --require-approval never -O output.json RumStack
   - jq -r .RumStack.CodeSnippet output.json > rum.js
@@ -792,7 +793,7 @@ layout: center
 
 </div>
 
-```ts {1-5|6-9|10|11-17|19-22|all}
+```ts {1-5|6-9|10|11|12-17|19-22|all}
 const webSiteBucket = new s3.Bucket(this, 'WebSiteBucket', {
   bucketName: 'xxxxxx',
   publicReadAccess: true,
