@@ -764,13 +764,13 @@ layout: center
 </div>
 
 ```ts {1-5|6-9|10|11-17|19-22|all}
-const webSiteBuclet = new s3.Bucket(this, 'WebSiteBucket', {
+const webSiteBucket = new s3.Bucket(this, 'WebSiteBucket', {
   bucketName: 'xxxxxx',
   publicReadAccess: true,
   websiteIndexDocument: 'index.html'
 })
 const appMonitor = new rum.AppMonitor(this, 'AppMonitor', {
-  domain: webSiteBuclet.bucketWebsiteDomainName,
+  domain: webSiteBucket.bucketWebsiteDomainName,
   appMonitorName: 'my-app-monitor',
 })
 const codeSnippet = appMonitor.generateCodeSnippet('CodeSnippet');
